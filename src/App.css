@@ -1,0 +1,350 @@
+body {
+  background-color: #8aafba;
+}
+h1, h2, h3 {
+  font-family: "Press Start 2P", arial;
+}
+h1 {
+  font-size: 2rem;
+}
+.container {
+  max-width: 56rem;
+}
+.container.game {
+  width: 800px;
+}
+.container.bottom-header{
+  width: 765px;
+}
+.App-header .container {
+  max-width: none;
+  padding: 0;
+  width: 100%;
+}
+.App-header .container .col {
+  padding: 0;
+}
+.container .row {
+  margin:0;
+}
+.no-pad,
+.col.no-pad {
+  padding:0;
+}
+.col.choices {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+.accordion > :first-of-type.card {
+  border: 1px solid rgba(0,0,0,.125);
+  border: 0 none;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.accordion .btn {
+  border: 0 none;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+}
+.accordion .btn h2 {
+  font-size: 1.2rem;
+  color: #000;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+}
+.accordion .btn h2 span:before {
+  content: "+";
+}
+.accordion .btn.active h2 span:before {
+  content: "-";
+}
+.accordion .btn h2 span {
+  color: #000;
+  display: inline-block;
+  right: 0;
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card-header {
+  padding: 0;
+  background-color: transparent;
+}
+.App-header {
+  background-color: #282c34;
+  background-color: #efefef;
+  background-color: #2b2b2b;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-header h1 {
+  text-align:center;
+}
+.App-header h1 {
+  background-color: #2b2b2b;
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.bottom-header {
+  margin-top: 20px;
+}
+.bottom-header .label,
+.bottom-header .description {
+
+}
+.bottom-header .label{
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bottom-header .description {
+  background-color: #fff;
+  border: 7px solid #efefef;
+  padding: 10px;
+}
+.bottom-header h3 {
+  color: #222;
+  font-size: 1.2rem;
+}
+.bottom-header p{
+  color: #222;
+  font-size: 14px;
+  line-height:22px;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+.sidebar {
+  min-width: 150px;
+}
+.sidebar h3 {
+  background-color: #efefef;
+  border-top: 3px solid #333;
+  font-family: "Press Start 2P", arial;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 40px;
+  margin-bottom: 0;
+  padding: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  line-height: 26px;
+}
+
+
+.App-link {
+  color: #09d3ac;
+}
+
+
+.scoreboard {
+  background-color: #fff;
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  padding: 0;
+  border: 3px solid #efefef;
+}
+.score {
+  background-color:#333;
+  position: relative;
+}
+.score p{
+  background-color: #212121;
+  border-top: 0 none;
+  border-radius: 0px;
+  color: #fff;
+  display: block;
+  font-family: "Press Start 2P", arial;
+  font-size: 23px;
+  max-width: 200px;
+  text-align:center;
+  margin:0 auto;
+}
+.score span {
+  padding: 5px;
+}
+.score .reset {
+  background-color: #c91616;
+  display: inline-block;
+  font-family: "Press Start 2P", arial;
+  font-size: 11px;
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  border: 0 none;
+  padding: 3px 8px;
+}
+.score .history {
+  position: absolute;
+  display: inline-block;
+  top: 5px;
+  left: 20px;
+  border: 0 none;
+}
+.card {
+  border-radius: 0px;
+  margin: 20px 0;
+  margin-top: 30px;
+}
+
+.card.winner {
+  box-shadow: 1px 3px 10px #ccc;
+  border: 3px solid #19af09;
+}
+.card h1 {
+  color: #333;
+  font-size: 1rem;
+  padding: 20px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 1px #efefef;
+  text-align: center;
+  width: 100%;
+}
+.card h3 {
+  background-color: #333;
+  border-left: 10px solid #428f48;
+  color: #fff;
+  font-family: "Press Start 2P", arial;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.card p {
+  text-align: center;
+}
+.card p i {
+  font-size: 4rem;
+  margin-top: 20px;
+}
+.card.winner h3 {
+  background-color: #19af09;
+  border-left: 10px solid #19af09;
+}
+.card#computer-label h3 {
+  border-left: 10px solid #4991e3;
+}
+.card.winner h3,
+.card.winner#computer-label h3 {
+  background-color: #19af09;
+  border-left: 10px solid #19af09;
+}
+.reset .btn-primary {
+  border-top: 0px solid;
+}
+.rounds ol {
+  margin-left: 0;
+  padding-left: 0;
+}
+.rounds ol li {
+  font-family: "Press Start 2P", arial;
+  font-size: 14px;
+  list-style-position: inside;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.rounds ol li:nth-child(even) {
+  background-color: #edf4ff;
+}
+ul.choices {
+  background-color: #fff;
+  border: 5px solid #efefef;
+  padding: 20px;
+  padding-bottom: 25px;
+  display: block;
+  margin-left: 0;
+  list-style: none;
+  border-radius: 0 0 5px 5px;
+}
+ul.choices li {
+  margin-bottom: 10px;
+}
+ul.choices li button {
+  font-family: "Press Start 2P", arial;
+  font-size: 11px;
+  padding: 10px 0;
+  text-transform: capitalize;
+}
+p.status {
+  font-family: "Press Start 2P", arial;
+  font-size: 12px;
+  text-align: center;
+}
+.versus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.versus h3 {
+  font-family: "Press Start 2P", arial;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+p.roundScore {
+  color: #222;
+  display: none;
+  font-family: "Press Start 2P", arial;
+  font-size: 25px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+p.roundScore.win{
+  display: block;
+  color: #19af09;
+  text-align: center !important;
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .3s;
+}
+p.roundScore.lose{
+  display: block;
+  color: red;
+  text-align: center !important;
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .3s;
+}
+li.hideNum {
+  list-style: none;
+  text-align:center;
+}
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
