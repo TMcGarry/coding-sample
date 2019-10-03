@@ -1,3 +1,5 @@
+/*-------- BASE --------*/
+/*------------------------*/
 body {
   background-color: #8aafba;
 }
@@ -13,17 +15,6 @@ h1 {
 .container.game {
   width: 800px;
 }
-.container.bottom-header{
-  width: 765px;
-}
-.App-header .container {
-  max-width: none;
-  padding: 0;
-  width: 100%;
-}
-.App-header .container .col {
-  padding: 0;
-}
 .container .row {
   margin:0;
 }
@@ -35,6 +26,71 @@ h1 {
   background-color: #fff;
   border-top: 1px solid #ccc;
 }
+
+/*-------- Header --------*/
+/*------------------------*/
+.container.bottom-header{
+  width: 765px;
+}
+.App-header .container {
+  max-width: none;
+  padding: 0;
+  width: 100%;
+}
+.App-header .container .col {
+  padding: 0;
+}
+.App-header {
+  background-color: #2b2b2b;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-header h1 {
+  text-align:center;
+}
+.App-header h1 {
+  background-color: #2b2b2b;
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.bottom-header {
+  margin-top: 20px;
+}
+
+.bottom-header .label{
+  background-color: #efefef;
+  border-left: 3px solid #272727;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bottom-header .description {
+  background-color: #fff;
+  border: 7px solid #efefef;
+  padding: 10px;
+}
+.bottom-header h3 {
+  color: #222;
+  font-size: 1.2rem;
+}
+.bottom-header p{
+  color: #222;
+  font-family: "Press Start 2P", arial;
+  font-size: 0.688rem;
+  line-height:22px;
+}
+
+
+/*-------- Accordion --------*/
+/*---------------------------*/
 .accordion > :first-of-type.card {
   border: 1px solid rgba(0,0,0,.125);
   border: 0 none;
@@ -64,67 +120,12 @@ h1 {
   display: inline-block;
   right: 0;
   position: absolute;
-  font-size: 20px;
+  font-size: 1.250rem;
   font-weight: bold;
 }
-.card-header {
-  padding: 0;
-  background-color: transparent;
-}
-.App-header {
-  background-color: #282c34;
-  background-color: #efefef;
-  background-color: #2b2b2b;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-.App-header h1 {
-  text-align:center;
-}
-.App-header h1 {
-  background-color: #2b2b2b;
-  font-size: 1.75rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.bottom-header {
-  margin-top: 20px;
-}
-.bottom-header .label,
-.bottom-header .description {
 
-}
-.bottom-header .label{
-  background-color: #efefef;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.bottom-header .description {
-  background-color: #fff;
-  border: 7px solid #efefef;
-  padding: 10px;
-}
-.bottom-header h3 {
-  color: #222;
-  font-size: 1.2rem;
-}
-.bottom-header p{
-  color: #222;
-  font-size: 14px;
-  line-height:22px;
-}
-
-.App-logo {
-  height: 40vmin;
-}
+/*-------- Sidebar --------*/
+/*---------------------------*/
 .sidebar {
   min-width: 150px;
 }
@@ -132,7 +133,7 @@ h1 {
   background-color: #efefef;
   border-top: 3px solid #333;
   font-family: "Press Start 2P", arial;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: normal;
   margin-top: 40px;
   margin-bottom: 0;
@@ -141,13 +142,8 @@ h1 {
   text-align: center;
   line-height: 26px;
 }
-
-
-.App-link {
-  color: #09d3ac;
-}
-
-
+/*-------- Scoreboard --------*/
+/*---------------------------*/
 .scoreboard {
   background-color: #fff;
   -webkit-border-radius: 5px; 
@@ -158,6 +154,8 @@ h1 {
   padding: 0;
   border: 3px solid #efefef;
 }
+/*-------- Score --------*/
+/*---------------------------*/
 .score {
   background-color:#333;
   position: relative;
@@ -169,7 +167,7 @@ h1 {
   color: #fff;
   display: block;
   font-family: "Press Start 2P", arial;
-  font-size: 23px;
+  font-size: 1.438rem;
   max-width: 200px;
   text-align:center;
   margin:0 auto;
@@ -181,7 +179,7 @@ h1 {
   background-color: #c91616;
   display: inline-block;
   font-family: "Press Start 2P", arial;
-  font-size: 11px;
+  font-size: 0.688em;
   position: absolute;
   right: 20px;
   top: 5px;
@@ -194,6 +192,12 @@ h1 {
   top: 5px;
   left: 20px;
   border: 0 none;
+}
+/*-------- Card --------*/
+/*---------------------------*/
+.card-header {
+  padding: 0;
+  background-color: transparent;
 }
 .card {
   border-radius: 0px;
@@ -219,7 +223,7 @@ h1 {
   border-left: 10px solid #428f48;
   color: #fff;
   font-family: "Press Start 2P", arial;
-  font-size: 11px;
+  font-size: 0.688rem;
   font-weight: bold;
   padding: 10px;
   text-transform: uppercase;
@@ -247,13 +251,15 @@ h1 {
 .reset .btn-primary {
   border-top: 0px solid;
 }
+/*-------- Rounds --------*/
+/*---------------------------*/
 .rounds ol {
   margin-left: 0;
   padding-left: 0;
 }
 .rounds ol li {
   font-family: "Press Start 2P", arial;
-  font-size: 14px;
+  font-size: 0.875rem;
   list-style-position: inside;
   margin-bottom: 10px;
   padding: 5px;
@@ -261,6 +267,8 @@ h1 {
 .rounds ol li:nth-child(even) {
   background-color: #edf4ff;
 }
+/*-------- Choices --------*/
+/*---------------------------*/
 ul.choices {
   background-color: #fff;
   border: 5px solid #efefef;
@@ -276,31 +284,18 @@ ul.choices li {
 }
 ul.choices li button {
   font-family: "Press Start 2P", arial;
-  font-size: 11px;
+  font-size: 0.688rem;
   padding: 10px 0;
   text-transform: capitalize;
 }
-p.status {
-  font-family: "Press Start 2P", arial;
-  font-size: 12px;
-  text-align: center;
-}
-.versus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.versus h3 {
-  font-family: "Press Start 2P", arial;
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
-}
+
+/*-------- Scoring --------*/
+/*---------------------------*/
 p.roundScore {
   color: #222;
   display: none;
   font-family: "Press Start 2P", arial;
-  font-size: 25px;
+  font-size: 1.563rem;
   text-align: center;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
@@ -327,6 +322,24 @@ p.roundScore.lose{
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: .3s;
+}
+/*-------- Utilities --------*/
+/*---------------------------*/
+p.status {
+  font-family: "Press Start 2P", arial;
+  font-size: 0.750rem;
+  text-align: center;
+}
+.versus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.versus h3 {
+  font-family: "Press Start 2P", arial;
+  font-weight: bold;
+  font-size: 1.125rem;
+  text-align: center;
 }
 li.hideNum {
   list-style: none;

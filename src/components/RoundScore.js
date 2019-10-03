@@ -3,18 +3,17 @@ import React from 'react';
 //Components
 import Col from 'react-bootstrap/Col';
 
-class GameStatus extends React.Component {
+class RoundScore extends React.Component {
   constructor(props) {
     super(props);
 
   }
 
-
     render() {
     return (
-      <Col xs={2} className="no-pad"><p className="status">{this.props.gameStatus}</p></Col>
+        <Col xs={5}><p className={this.props.roundClass}>{this.props.roundScore}</p></Col>
     );
   }
 }
 
-export default GameStatus;
+export default RoundScore;

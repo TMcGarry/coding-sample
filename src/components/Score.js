@@ -1,26 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 //Components
+import Button from 'react-bootstrap/Button';
 
 
 class Score extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-        playerScore: 0,
-        computerScore: 0
-    };
   }
-
 
     render() {
     return (
-        <div className="flex-container scoreboard">
-          <div id='player-label' className="card">Player 1</div>
-          <div id="computer-label" className="card">Computer</div>
-          <p><span id="player-score">0</span> : <span id="computer-score">0</span></p>
-        </div>
+      <div className="score"><p><span id="player-score">{this.props.playerScore}</span> : <span id="computer-score">{this.props.computerScore}</span></p><Button className="reset" variant="primary" onClick={this.props.resetScore}>Reset</Button></div> 
     );
   }
 }

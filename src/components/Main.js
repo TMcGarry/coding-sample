@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 //Components
 import Container from 'react-bootstrap/Container';
@@ -6,23 +6,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-
-import ExternalData from './ExternalData';
-import Score from './Score';
-import Choices from './Choices';
 import Button from 'react-bootstrap/Button';
-import ChoiceButton from './ChoiceButton';
+
+import Score from './Score';
+import Player from './Player';
+import RoundScore from './RoundScore';
 import GameStatus from './GameStatus';
 
-//Variables
-let xhr;
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cArr: ["rock","paper","scissors","spock","lizard"],
       choice: null,
       choices: [],
       error: null,
@@ -51,8 +47,6 @@ class Main extends React.Component {
   this.choose = this.choose.bind(this);
   this.getChoices = this.getChoices.bind(this);
   this.getSetCompChoice = this.getSetCompChoice.bind(this);
-  this.getRandNum = this.getRandNum.bind(this);
-  this.getComputerChoice = this.getComputerChoice.bind(this);
   this.resetScore = this.resetScore.bind(this);
   this.resetBoard = this.resetBoard.bind(this);
   this.postPlay = this.postPlay.bind(this);
@@ -95,12 +89,8 @@ resetBoard() {
     compIconClass:"fa fa-check-circle"
   })
 }
-getComputerChoice() {
-  this.getRandNum();
-}
 
 getChoices() {
-  let self = this;
   fetch("https://codechallenge.boohma.com/choices")
     .then(res => res.json())
     .then(
@@ -108,7 +98,6 @@ getChoices() {
         this.setState({
           choices:result
         });
-          
       },
       (error) => {
         this.setState({
@@ -118,7 +107,6 @@ getChoices() {
     )
 }
 getSetCompChoice() {
-  let self = this;
   fetch("https://codechallenge.boohma.com/choice")
     .then(res => res.json())
     .then(
@@ -155,11 +143,6 @@ choose(e) {
   let _attr = e.target.getAttribute("id");
   let _id = _attr.split('-')[1];
   let _name = _attr.split('-')[0];
-
-  /*this.setState({
-      playerChoice: _attr.split('-')[1],
-      playerChoiceName: _attr.split('-')[0]
-  });*/
 
   this.postPlay(_id, _name);
 }
@@ -298,49 +281,6 @@ displayResults(pid, pname) {
   
 }
 
-getRandNum() {
-  fetch("https://codechallenge.boohma.com/random")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        let num = result.random_number;
-        let ch = "none";
-
-        switch(true) {
-          case (num <= 20):
-            ch = "1";
-            break;
-          case (num <= 40):
-            ch = "2";
-            break;
-          case (num <= 60):
-            ch = "3";
-            break;
-          case (num <= 80):
-            ch = "4";
-            break;
-          case (num <= 100):
-            ch = "5";
-            break;
-          default:
-            ch = "1";
-            console.log("num: "+num);
-            break;
-        }
-
-        this.setState({
-          computerChoice:ch
-        });
-        this.playRound(this.state.playerChoice, this.state.computerChoice);
-      },
-      (error) => {
-        this.setState({
-          error:error.message
-        });
-      }
-    )
-}
-
 displayChoices(item) {
   let btnId = item.name +"-"+ item.id;
   return <li key={item.id}><Button variant="outline-secondary" id={btnId} onClick={this.choose} block>{item.name}</Button></li>
@@ -378,32 +318,24 @@ componentDidUpdate() {
               <Container className="scoreboard">
               <Row>
                 <Col className="no-pad">
-                  <div className="score"><p><span id="player-score">{this.state.playerScore}</span> : <span id="computer-score">{this.state.computerScore}</span></p><Button className="reset" variant="primary" onClick={this.resetScore}>Reset</Button></div> 
+                <Score playerScore={this.state.playerScore} computerScore={this.state.computerScore} resetScore={this.resetScore} />
                 </Col>
               </Row>
               <Row>
                 <Col xs={true}>
-                  <div id='player-label' className={this.state.playerCardClass}>
-                    <h3>Player 1</h3>
-                    <p><i className={this.state.playIconClass}></i></p>
-                    <h1>{this.state.playerChoiceName}</h1>
-                  </div>
+                <Player playerId="player-label" cardClass={this.state.playerCardClass} playerName="Player 1" iconClass={this.state.playIconClass} choiceName={this.state.playerChoiceName} />
                 </Col>
                 <Col xs={2} className="versus">
                   <h3>VS.</h3>
                 </Col>
                 <Col xs={true}>
-                  <div id="computer-label" className={this.state.computerCardClass}>
-                      <h3>Computer</h3>
-                      <p><i className={this.state.compIconClass}></i></p>
-                      <h1>{this.state.computerChoiceName}</h1>
-                  </div>
+                <Player playerId="computer-label" cardClass={this.state.computerCardClass} playerName="Computer" iconClass={this.state.compIconClass} choiceName={this.state.computerChoiceName} />
                 </Col>
               </Row>
               <Row>
-                <Col xs={5}><p className={this.state.playRoundClass}>{this.state.playRoundScore}</p></Col>
-                <Col xs={2} className="no-pad"><p className="status">{this.state.gameStatus}</p></Col>
-                <Col xs={5}><p className={this.state.compRoundClass}>{this.state.compRoundScore}</p></Col>
+                <RoundScore roundClass={this.state.playRoundClass} roundScore={this.state.playRoundScore} />
+                <GameStatus gameStatus={this.state.gameStatus} />
+                <RoundScore roundClass={this.state.compRoundClass} roundScore={this.state.compRoundScore} />
               </Row>
               <Row>
                 <Col className="rounds">
